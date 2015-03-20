@@ -83,6 +83,20 @@ gen
 
   });
 
+   app.directive("productSpecs", function() {
+    return {
+      restrict: 'A',
+      templateUrl: "product-specs.html"
+    };
+  });
+
+   app.directive("productReviews", function() {
+    return {
+      restrict: 'A',
+      templateUrl: "product-reviews.html"
+    };
+  });
+
   app.directive("productDescription",function(){
     return {
     restrict: 'E',
