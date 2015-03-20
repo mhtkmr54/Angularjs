@@ -60,17 +60,28 @@ gen
     this.products = gems;
   });
 
-  app.controller("TabController", function() {
-    this.tab = 1;
+  
+  app.directive("productTabs", function() {
+    return {
+      restrict: 'E',
+      templateUrl: "product-tabs.html",
+      controller: function(){ 
+      this.tab = 1;
 
-    this.isSet = function(checkTab) {
+      this.isSet = function(checkTab) {
       return this.tab === checkTab;
-    };
+                             };
 
     this.setTab = function(setTab) {
       this.tab = setTab;
+                             };
+    
+    },
+      controllerAs :'tab'
     };
+    
   });
+  
 
   app.controller("ReviewController", function(){
 
@@ -83,26 +94,26 @@ gen
 
   });
 
-   app.directive("productSpecs", function() {
+  app.directive("productDescription", function() {
     return {
-      restrict: 'A',
-      templateUrl: "product-specs.html"
+      restrict: 'E',
+      templateUrl: "product-description.html"
     };
   });
 
-   app.directive("productReviews", function() {
+  app.directive("productReviews", function() {
     return {
-      restrict: 'A',
+      restrict: 'E',
       templateUrl: "product-reviews.html"
     };
   });
 
-  app.directive("productDescription",function(){
+  app.directive("productSpecs", function() {
     return {
-    restrict: 'E',
-    templateUrl: "product-description.html"
-  };
-  });  
+      restrict:"A",
+      templateUrl: "product-specs.html"
+    };
+  });
 
   var gems = [
     {
@@ -178,3 +189,4 @@ gen
     }
   ];
 })();
+
